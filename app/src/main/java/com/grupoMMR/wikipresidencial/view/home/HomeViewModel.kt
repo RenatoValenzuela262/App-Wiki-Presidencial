@@ -1,2 +1,2 @@
-package com.grupoMMR.wikipresidencial.home
+package com.grupoMMR.wikipresidencial.view.home
 

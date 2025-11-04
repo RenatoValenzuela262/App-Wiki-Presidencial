@@ -1,9 +1,9 @@
-package com.grupoMMR.wikipresidencial.core.navigation
+package com.grupoMMR.wikipresidencial.view.navigation
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data object Candidato;
+object Candidato;
 
 @Serializable
 data class CandidatoDetalle(
