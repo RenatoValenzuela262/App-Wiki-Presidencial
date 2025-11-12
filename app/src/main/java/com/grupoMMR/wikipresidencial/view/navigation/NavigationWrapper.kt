@@ -1,7 +1,6 @@
 package com.grupoMMR.wikipresidencial.view.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.input.key.Key.Companion.Home
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
