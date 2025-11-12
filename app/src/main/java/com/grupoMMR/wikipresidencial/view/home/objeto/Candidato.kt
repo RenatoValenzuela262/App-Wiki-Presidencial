@@ -1,5 +1,7 @@
 package com.grupoMMR.wikipresidencial.view.home.objeto
 
+import com.grupoMMR.wikipresidencial.R
+
 data class Candidato(
     val nombre: String,
     val edad: Int,
@@ -8,7 +10,8 @@ data class Candidato(
     val historialPolitico: String,
     val estudios: String,
     val propuestas: String,
-    val partidoPolitico: String
+    val partidoPolitico: String,
+    val foto: Int
 )
 
 object CandidatosRepository {
@@ -27,7 +30,8 @@ object CandidatosRepository {
                 "\n- Posgrado de Administración - Universidad de Georgia" +
                 "\n- Ingeniería Comercial - Universidad de Chile",
             propuestas = "...",
-            partidoPolitico = "Partido de la Gente"
+            partidoPolitico = "Partido de la Gente",
+            foto = R.drawable.PARISI
         ),
         Candidato(
             nombre = "José Antonio Kast",
@@ -39,7 +43,8 @@ object CandidatosRepository {
                                 "\n- 2021 (2do Lugar)",
             estudios = "Derecho",
             propuestas = "...",
-            partidoPolitico = "Partido Republicano de Chile"
+            partidoPolitico = "Partido Republicano de Chile",
+            foto = R.drawable.KAST
         ),
         Candidato(
             nombre = "Jeannette Jara Román",
@@ -54,7 +59,8 @@ object CandidatosRepository {
                 "\n- Universidad de Santiago de Chile" +
                 "\n- Universidad Central de Chile",
             propuestas = "...",
-            partidoPolitico = "Partido Comunista de Chile"
+            partidoPolitico = "Partido Comunista de Chile",
+            foto = R.drawable.JARA
         ),
         Candidato(
             nombre = "Marco Antonio Enríquez-Ominami",
@@ -69,7 +75,8 @@ object CandidatosRepository {
                         "- 2021 (6to Lugar)",
             estudios = "- Universidad de Chile",
             propuestas = "",
-            partidoPolitico = "Independiente"
+            partidoPolitico = "Independiente",
+            foto = R.drawable.MEO
         ),
         Candidato(
             nombre = "Johannes Kaiser Barents von Hohenhagen",
@@ -79,7 +86,8 @@ object CandidatosRepository {
             historialPolitico = "",
             estudios = "",
             propuestas = "",
-            partidoPolitico = "Partido Nacional Libertario"
+            partidoPolitico = "Partido Nacional Libertario",
+            foto = R.drawable.KAISER
         ),
         Candidato(
             nombre = "Eduardo Antonio Artés Brichetti",
@@ -92,7 +100,8 @@ object CandidatosRepository {
                     "- 2021 (7mo Lugar)",
             estudios = "",
             propuestas = "",
-            partidoPolitico = "Partido Comunista Chileno (Acción Proletaria)"
+            partidoPolitico = "Partido Comunista Chileno (Acción Proletaria)",
+            foto = R.drawable.ARTES
         ),
         Candidato(
             nombre = "Evelyn Matthei Fornet",
@@ -103,7 +112,8 @@ object CandidatosRepository {
                     "\n- 2013 (2do Lugar)",
             estudios = "",
             propuestas = "",
-            partidoPolitico = "Unión Demócrata Independiente"
+            partidoPolitico = "Unión Demócrata Independiente",
+            foto = R.drawable.MATTHEI
         ),
         Candidato(
             nombre = "Harold Mayne-Nicholls Sécul",
@@ -180,7 +190,8 @@ object CandidatosRepository {
                         "\n" +
                         "\n" +
                         "Proteger ecosistemas y promover un desarrollo sustentable.",
-            partidoPolitico = "Independiente"
+            partidoPolitico = "Independiente",
+            foto = R.drawable.MAYNENICHOLLS
         )
     )
 }

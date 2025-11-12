@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -27,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.grupoMMR.wikipresidencial.view.home.objeto.CandidatosRepository
 import com.grupoMMR.wikipresidencial.view.navigation.Candidato
 import com.grupoMMR.wikipresidencial.view.navigation.CandidatoDetalle
 
@@ -53,22 +55,17 @@ fun HomeScreen(
                 text = "Candidatos 2025"
             )
             Spacer(modifier = Modifier.height(16.dp))
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())
-            ) {
-                Button(
-                    onClick = {navController.navigate(Candidato)},
-                    modifier = Modifier.fillMaxWidth(),
-                ){
-                    Image(
-                        modifier = Modifier
-                            .height(200.dp)
-                            .width(100.dp),
-                        painter = painterResource(id = R.drawable.candidato),
-                        contentDescription = "Candidato"
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text(text = )
-                }
+
+            val miLista= CandidatosRepository.listaCandidatos;
+            LazyColumn(modifier = Modifier
+                .verticalScroll(rememberScrollState())) { items(miLista.size) {
+                    item ->
+                    com.grupoMMR.wikipresidencial.view.home.objeto.Candidato(
+                        nombre = miLista[item].nombre,
+                )
+
+
+            }
             }
         }
     }
