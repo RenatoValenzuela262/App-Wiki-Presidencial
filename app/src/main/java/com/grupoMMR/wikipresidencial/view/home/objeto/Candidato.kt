@@ -31,7 +31,7 @@ object CandidatosRepository {
                 "\n- Ingeniería Comercial - Universidad de Chile",
             propuestas = "...",
             partidoPolitico = "Partido de la Gente",
-            foto = R.drawable.PARISI
+            foto = R.drawable.parisi
         ),
         Candidato(
             nombre = "José Antonio Kast",
@@ -44,7 +44,7 @@ object CandidatosRepository {
             estudios = "Derecho",
             propuestas = "...",
             partidoPolitico = "Partido Republicano de Chile",
-            foto = R.drawable.KAST
+            foto = R.drawable.kast
         ),
         Candidato(
             nombre = "Jeannette Jara Román",
@@ -60,7 +60,7 @@ object CandidatosRepository {
                 "\n- Universidad Central de Chile",
             propuestas = "...",
             partidoPolitico = "Partido Comunista de Chile",
-            foto = R.drawable.JARA
+            foto = R.drawable.jara
         ),
         Candidato(
             nombre = "Marco Antonio Enríquez-Ominami",
@@ -76,7 +76,7 @@ object CandidatosRepository {
             estudios = "- Universidad de Chile",
             propuestas = "",
             partidoPolitico = "Independiente",
-            foto = R.drawable.MEO
+            foto = R.drawable.meo
         ),
         Candidato(
             nombre = "Johannes Kaiser Barents von Hohenhagen",
@@ -87,7 +87,7 @@ object CandidatosRepository {
             estudios = "",
             propuestas = "",
             partidoPolitico = "Partido Nacional Libertario",
-            foto = R.drawable.KAISER
+            foto = R.drawable.kaiser
         ),
         Candidato(
             nombre = "Eduardo Antonio Artés Brichetti",
@@ -101,7 +101,7 @@ object CandidatosRepository {
             estudios = "",
             propuestas = "",
             partidoPolitico = "Partido Comunista Chileno (Acción Proletaria)",
-            foto = R.drawable.ARTES
+            foto = R.drawable.artes
         ),
         Candidato(
             nombre = "Evelyn Matthei Fornet",
@@ -113,7 +113,7 @@ object CandidatosRepository {
             estudios = "",
             propuestas = "",
             partidoPolitico = "Unión Demócrata Independiente",
-            foto = R.drawable.MATTHEI
+            foto = R.drawable.matthei
         ),
         Candidato(
             nombre = "Harold Mayne-Nicholls Sécul",
@@ -191,7 +191,7 @@ object CandidatosRepository {
                         "\n" +
                         "Proteger ecosistemas y promover un desarrollo sustentable.",
             partidoPolitico = "Independiente",
-            foto = R.drawable.MAYNENICHOLLS
+            foto = R.drawable.maynenicholls
         )
     )
 }

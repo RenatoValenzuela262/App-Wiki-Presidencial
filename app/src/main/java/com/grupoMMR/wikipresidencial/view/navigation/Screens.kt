@@ -3,7 +3,7 @@ package com.grupoMMR.wikipresidencial.view.navigation
 import kotlinx.serialization.Serializable
 
 @Serializable
-object Candidato;
+object Home;
 
 @Serializable
 data class CandidatoDetalle(
