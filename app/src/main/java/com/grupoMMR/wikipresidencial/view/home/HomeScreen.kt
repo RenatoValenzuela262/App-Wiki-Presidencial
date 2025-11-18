@@ -10,10 +10,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Card
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -105,6 +110,52 @@ fun CandidatoItem(candidato: Candidato, modifier: Modifier = Modifier) {
                     .fillMaxWidth()
                     .background(Color.Black.copy(alpha = 0.5f))
                     .padding(vertical = 8.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun CandidatoDetailScreen(candidato: Candidato, navController: NavController){
+    Box(modifier = Modifier.fillMaxSize()){
+        Column(
+            modifier = Modifier
+            .fillMaxSize()
+            .padding(24.dp))
+        {
+            Image(
+                painter = painterResource(id = candidato.foto),
+                contentDescription = candidato.nombre,
+                modifier = Modifier.size(250.dp)
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(text = candidato.nombre, style = MaterialTheme.typography.titleLarge)
+            Text(text = candidato.partidoPolitico, style = MaterialTheme.typography.titleMedium)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = "Edad: "+ candidato.edad, style = MaterialTheme.typography.bodyMedium)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = "Lugar de Nacimiento: "+ candidato.lugarNacimiento, style = MaterialTheme.typography.bodyMedium)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = "Nacionalidad: "+ candidato.nacionalidad, style = MaterialTheme.typography.bodyMedium)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = "Estudios: "+ candidato.estudios, style = MaterialTheme.typography.bodyMedium)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = "Historial politico: "+ candidato.historialPolitico, style = MaterialTheme.typography.bodyMedium)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = "Propuestas: "+ candidato.propuestas, style = MaterialTheme.typography.bodyMedium)
+        }
+
+        FloatingActionButton(
+            onClick = {navController.popBackStack()},
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(16.dp),
+            containerColor = Color.Blue,
+            contentColor = Color.White
+        ) {
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                contentDescription = "Regresar"
             )
         }
     }
