@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -36,8 +37,10 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.grupoMMR.wikipresidencial.view.candidatodetalle.CandidatoDetalleScreen
 import com.grupoMMR.wikipresidencial.view.home.objeto.Candidato
 import com.grupoMMR.wikipresidencial.view.home.objeto.CandidatosRepository
+import com.grupoMMR.wikipresidencial.view.navigation.CandidatoDetalle
 
 @Composable
 fun HomeScreen(
@@ -69,10 +72,14 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                items(miLista) { candidato ->
-                    CandidatoItem(candidato = candidato)
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = { navController.navigate(CandidatoDetalleScreen()) })
+                {
+                    items(miLista) { candidato ->
+                        CandidatoItem(candidato = candidato)
+                    }
                 }
-            }
         }
     }
 }
@@ -110,52 +117,6 @@ fun CandidatoItem(candidato: Candidato, modifier: Modifier = Modifier) {
                     .fillMaxWidth()
                     .background(Color.Black.copy(alpha = 0.5f))
                     .padding(vertical = 8.dp)
-            )
-        }
-    }
-}
-
-@Composable
-fun CandidatoDetailScreen(candidato: Candidato, navController: NavController){
-    Box(modifier = Modifier.fillMaxSize()){
-        Column(
-            modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp))
-        {
-            Image(
-                painter = painterResource(id = candidato.foto),
-                contentDescription = candidato.nombre,
-                modifier = Modifier.size(250.dp)
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(text = candidato.nombre, style = MaterialTheme.typography.titleLarge)
-            Text(text = candidato.partidoPolitico, style = MaterialTheme.typography.titleMedium)
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Edad: "+ candidato.edad, style = MaterialTheme.typography.bodyMedium)
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Lugar de Nacimiento: "+ candidato.lugarNacimiento, style = MaterialTheme.typography.bodyMedium)
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Nacionalidad: "+ candidato.nacionalidad, style = MaterialTheme.typography.bodyMedium)
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Estudios: "+ candidato.estudios, style = MaterialTheme.typography.bodyMedium)
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Historial politico: "+ candidato.historialPolitico, style = MaterialTheme.typography.bodyMedium)
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Propuestas: "+ candidato.propuestas, style = MaterialTheme.typography.bodyMedium)
-        }
-
-        FloatingActionButton(
-            onClick = {navController.popBackStack()},
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(16.dp),
-            containerColor = Color.Blue,
-            contentColor = Color.White
-        ) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = "Regresar"
             )
         }
     }
