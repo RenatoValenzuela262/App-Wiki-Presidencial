@@ -22,6 +22,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -79,11 +81,20 @@ fun CandidatoItem(candidato: Candidato, modifier: Modifier = Modifier) {
         Box(
             modifier = Modifier.fillMaxSize()
         ) {
+            val filtroEscalaGrises = ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) });
+
+            val filtroImagen = if (candidato.nombre != "Jeannette Jara Román" && candidato.nombre != "José Antonio Kast"){
+                filtroEscalaGrises;
+            }else{
+                null;
+            }
+
             Image(
                 painter = painterResource(id = candidato.foto),
                 contentDescription = "Foto de ${candidato.nombre}",
                 modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop
+                contentScale = ContentScale.Crop,
+                colorFilter = filtroImagen
             )
             Text(
                 text = candidato.nombre,
