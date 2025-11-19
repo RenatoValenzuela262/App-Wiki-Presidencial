@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.grupoMMR.wikipresidencial.view.home.HomeScreen
 import com.grupoMMR.wikipresidencial.view.candidatodetalle.CandidatoDetalleScreen
+import com.grupoMMR.wikipresidencial.view.candidatodetalle.PropuestasDetalleScreen
 
 @Composable
 fun NavigationWrapper(){
@@ -22,6 +23,13 @@ fun NavigationWrapper(){
             CandidatoDetalleScreen(
                 navController = navController,
                 backStackArgs = detalle
+            )
+        }
+        composable<PropuestasDetalle> { backStackEntry ->
+            val propuestas = backStackEntry.toRoute<PropuestasDetalle>()
+            PropuestasDetalleScreen(
+                navController = navController,
+                backStackArgs = propuestas
             )
         }
     }

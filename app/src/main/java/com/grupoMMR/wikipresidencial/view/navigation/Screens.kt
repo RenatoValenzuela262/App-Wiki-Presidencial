@@ -14,4 +14,12 @@ data class CandidatoDetalle(
     val historialPolitico: String,
     val estudios: String,
     val propuestas: String,
-    val partidoPolitico: String);
+    val partidoPolitico: String
+);
+
+@Serializable
+data class PropuestasDetalle(
+    val nombre: String,
+    val partidoPolitico: String,
+    val propuestas: String
+);

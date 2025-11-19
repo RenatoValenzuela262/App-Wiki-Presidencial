@@ -42,6 +42,7 @@ import com.grupoMMR.wikipresidencial.view.candidatodetalle.CandidatoDetalleScree
 import com.grupoMMR.wikipresidencial.view.home.objeto.Candidato
 import com.grupoMMR.wikipresidencial.view.home.objeto.CandidatosRepository
 import com.grupoMMR.wikipresidencial.view.navigation.CandidatoDetalle
+import com.grupoMMR.wikipresidencial.R
 
 @Composable
 fun HomeScreen(
@@ -61,9 +62,11 @@ fun HomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
 
             ) {
-            Text(
-                style = MaterialTheme.typography.titleLarge,
-                text = "Candidatos 2025"
+            Image(
+                painter = painterResource(id = R.drawable.listoncillocandidatos),
+                contentDescription = "Logo Aplicacion",
+                modifier = Modifier.fillMaxWidth(),
+                alignment = Alignment.TopCenter,
             )
             Spacer(modifier = Modifier.height(16.dp))
 
