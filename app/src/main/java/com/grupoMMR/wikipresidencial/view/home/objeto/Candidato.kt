@@ -29,7 +29,9 @@ object CandidatosRepository {
                 "- Instituto Nacional General José Miguel Carrera" +
                         "\n- Posgrado de Administración - Universidad de Georgia" +
                         "\n- Ingeniería Comercial - Universidad de Chile",
-            propuestas = "Modificar el sistema de evaluación de programas estatales de DIPRES, aumentando el peso de los indicadores de eficiencia (30%)," +
+            propuestas =
+                    "Administración Pública\n"+
+                    "Modificar el sistema de evaluación de programas estatales de DIPRES, aumentando el peso de los indicadores de eficiencia (30%)," +
                     " economía (30%) y calidad (25%), y disminuyendo la eficacia (15%)\n" +
                     "Impulsar Proyecto de Ley de Delación Compensada ('Ley Topo') como mecanismo de incentivo para prevenir y erradicar la corrupción en el aparato público\n\n"+
                     "Salud\n"+

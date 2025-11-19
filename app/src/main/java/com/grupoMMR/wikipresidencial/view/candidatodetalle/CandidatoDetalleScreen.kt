@@ -144,12 +144,16 @@ fun CandidatoDetalleScreen(navController: NavHostController, backStackArgs: Cand
                         Icon(
                             imageVector = Icons.Filled.Star,
                             contentDescription = "Icono para acompañar al texto",
-                            Modifier.padding(horizontal = 14.dp).align(Alignment.CenterStart)
+                            Modifier
+                                .padding(horizontal = 14.dp)
+                                .align(Alignment.CenterStart),
+                            tint = Color.White
                         )
                         Text(
                             text = "Ver Propuestas Clave",
                             style = MaterialTheme.typography.bodyLarge,
-                            modifier = Modifier.align(Alignment.Center)
+                            modifier = Modifier.align(Alignment.Center),
+                            color = Color.White
                         )
                     }
                 }

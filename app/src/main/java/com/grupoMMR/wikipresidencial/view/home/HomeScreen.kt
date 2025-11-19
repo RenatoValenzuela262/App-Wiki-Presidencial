@@ -1,5 +1,12 @@
 package com.grupoMMR.wikipresidencial.view.home
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -26,8 +33,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
@@ -62,12 +72,24 @@ fun HomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
 
             ) {
-            Image(
-                painter = painterResource(id = R.drawable.listoncillocandidatos),
-                contentDescription = "Logo Aplicacion",
-                modifier = Modifier.fillMaxWidth(),
-                alignment = Alignment.TopCenter,
+            val infinite = rememberInfiniteTransition(label = "pulso")
+            val scale by infinite.animateFloat(
+                initialValue = 0.95f,
+                targetValue = 1.05f,
+                animationSpec = infiniteRepeatable(
+                    animation = tween(1000, easing = LinearEasing),
+                    repeatMode = RepeatMode.Reverse
+                ), label = "scale"
             )
+            Box(Modifier.scale(scale))
+            {
+                Image(
+                    painter = painterResource(id = R.drawable.listoncillocandidatos),
+                    contentDescription = "Logo Aplicacion",
+                    modifier = Modifier.fillMaxWidth(),
+                    alignment = Alignment.TopCenter,
+                )
+            }
             Spacer(modifier = Modifier.height(16.dp))
 
             val miLista = CandidatosRepository.listaCandidatos
@@ -117,6 +139,7 @@ fun CandidatoItem(candidato: Candidato, modifier: Modifier = Modifier, navContro
             }else{
                 null;
             }
+
 
             Image(
                 painter = painterResource(id = candidato.foto),

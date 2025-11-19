@@ -70,7 +70,7 @@ fun PropuestasDetalleScreen(navController: NavHostController, backStackArgs: Pro
                         contentDescription = candidato.nombre,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier
-                            .size(200.dp)
+                            .size(100.dp)
                             .clip(CircleShape)
                     )
 
@@ -97,13 +97,28 @@ fun PropuestasDetalleScreen(navController: NavHostController, backStackArgs: Pro
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(12.dp))
-                Text(
-                    text = candidato.propuestas,
-                    style = MaterialTheme.typography.bodyLarge
-                )
-            }
-        }
+                candidato.propuestas.split("\n\n").forEach { propuesta ->
+                    val partes = propuesta.trim().split("\n")
+                    if (partes.isNotEmpty()) {
+                        Text(
+                            text = partes[0],
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        if (partes.size > 1) {
+                            Text(
+                                text = partes.drop(1).joinToString("\n"),
+                                style = MaterialTheme.typography.bodyLarge
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(16.dp))
+                    }
+                }
+            } // Cierre del Column
+        } // Cierre del Scaffold
     } else {
+        // Opcional: Mostrar algo si el candidato no se encuentra
         Scaffold {
             Box(modifier = Modifier.fillMaxSize().padding(it), contentAlignment = Alignment.Center) {
                 Text("Candidato no encontrado")
