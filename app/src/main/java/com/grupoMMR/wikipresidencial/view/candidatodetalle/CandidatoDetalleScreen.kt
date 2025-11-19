@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -35,10 +36,18 @@ fun CandidatoDetalleScreen(navController: NavHostController, backStackArgs: Cand
 
     Box(modifier = Modifier.fillMaxSize()) {
         if (candidato != null) {
+            Column(modifier = Modifier
+                .fillMaxWidth()
+                .height(80.dp)
+                .padding(vertical = 16.dp)
+                .align(Alignment.Center))
+            {
+                Text(text = "Perfil del Candidato", style = MaterialTheme.typography.titleLarge, modifier = Modifier.align(Alignment.CenterHorizontally))
+            }
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(24.dp)
+                    .padding(horizontal = 32.dp, vertical = 80.dp)
                     .verticalScroll(rememberScrollState())
             ) {
                 Image(
@@ -64,17 +73,18 @@ fun CandidatoDetalleScreen(navController: NavHostController, backStackArgs: Cand
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(text = "Historial politico: " + candidato.historialPolitico, style = MaterialTheme.typography.bodyMedium)
                 Spacer(modifier = Modifier.height(8.dp))
+                /*
                 Text(text = "Propuestas: " + candidato.propuestas, style = MaterialTheme.typography.bodyMedium)
+                */
             }
         } else {
-            // Opcional: Mostrar un mensaje si no se encuentra el candidato
             Text("Candidato no encontrado", modifier = Modifier.align(Alignment.Center))
         }
 
         FloatingActionButton(
             onClick = { navController.popBackStack() },
             modifier = Modifier
-                .align(Alignment.BottomEnd)
+                .align(Alignment.TopStart)
                 .padding(16.dp),
             containerColor = Color.Blue,
             contentColor = Color.White
