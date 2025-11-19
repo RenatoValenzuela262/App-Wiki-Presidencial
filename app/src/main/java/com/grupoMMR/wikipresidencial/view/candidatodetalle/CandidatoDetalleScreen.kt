@@ -28,30 +28,26 @@ import com.grupoMMR.wikipresidencial.view.navigation.CandidatoDetalle
 
 @Composable
 fun CandidatoDetalleScreen(navController: NavHostController, backStackArgs: CandidatoDetalle) {
-    // Los argumentos de navegación (backStackArgs) solo traen los datos serializables.
-    // Usamos el 'nombre' que sí viene en los argumentos para buscar el candidato
-    // completo en nuestro repositorio, que sí incluye la foto (Int).
     val candidato = CandidatosRepository.listaCandidatos.find { it.nombre == backStackArgs.nombre }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        // Solo mostramos el contenido si encontramos al candidato
         if (candidato != null) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(24.dp)
-                    .verticalScroll(rememberScrollState()) // Para permitir el scroll si el contenido es muy largo
+                    .verticalScroll(rememberScrollState())
             ) {
                 Image(
                     painter = painterResource(id = candidato.foto),
                     contentDescription = candidato.nombre,
                     modifier = Modifier
                         .size(250.dp)
-                        .align(Alignment.CenterHorizontally) // Centramos la imagen
+                        .align(Alignment.CenterHorizontally)
                 )
                 Spacer(modifier = Modifier.height(16.dp))
-                Text(text = candidato.nombre, style = MaterialTheme.typography.titleLarge)
-                Text(text = candidato.partidoPolitico, style = MaterialTheme.typography.titleMedium)
+                Text(text = candidato.nombre, style = MaterialTheme.typography.titleLarge, modifier = Modifier.align(Alignment.CenterHorizontally))
+                Text(text = candidato.partidoPolitico, style = MaterialTheme.typography.titleMedium, modifier = Modifier.align(Alignment.CenterHorizontally))
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(text = "Edad: " + candidato.edad, style = MaterialTheme.typography.bodyMedium)
                 Spacer(modifier = Modifier.height(8.dp))

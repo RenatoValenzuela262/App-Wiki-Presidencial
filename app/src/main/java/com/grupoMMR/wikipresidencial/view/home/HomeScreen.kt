@@ -74,7 +74,10 @@ fun HomeScreen(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                     items(miLista) { candidato ->
-                        CandidatoItem(candidato = candidato)
+                        CandidatoItem(
+                            candidato = candidato,
+                            navController = navController
+                        )
                     }
                 }
         }
@@ -82,11 +85,24 @@ fun HomeScreen(
 }
 
 @Composable
-fun CandidatoItem(candidato: Candidato, modifier: Modifier = Modifier) {
+fun CandidatoItem(candidato: Candidato, modifier: Modifier = Modifier, navController: NavController) {
     Card(
         modifier = modifier
             .fillMaxWidth().height(250.dp)
-            .clickable(onClick = ())
+            .clickable {
+                navController.navigate(
+                    CandidatoDetalle(
+                        nombre = candidato.nombre,
+                        edad = candidato.edad,
+                        lugarNacimiento = candidato.lugarNacimiento,
+                        nacionalidad = candidato.nacionalidad,
+                        historialPolitico = candidato.historialPolitico,
+                        estudios = candidato.estudios,
+                        propuestas = candidato.propuestas,
+                        partidoPolitico = candidato.partidoPolitico
+                    )
+                )
+            }
     ) {
         Box(
             modifier = Modifier.fillMaxSize()
